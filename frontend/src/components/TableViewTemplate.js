@@ -31,12 +31,16 @@ const TableViewTemplate = ({ columns, rows }) => {
                                         {columns.map((column, index) => {
                                             const value = row[column.id];
                                             return (
-                                                <StyledTableCell key={index} align={column.align}>
+                                                <StyledTableCell key={index} align={column.align}
+                                                
+                                                >
                                                     {
                                                         column.format && typeof value === 'number'
                                                             ? column.format(value)
                                                             : value
                                                     }
+
+                                                    
                                                 </StyledTableCell>
                                             );
                                         })}

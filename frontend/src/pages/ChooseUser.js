@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
-  Grid,
+  Grid2,
   Paper,
   Box,
   Container,
@@ -87,8 +87,8 @@ const ChooseUser = ({ visitor }) => {
   return (
     <StyledContainer>
       <Container>
-        <Grid container spacing={2} justifyContent="center">
-          <Grid item xs={12} sm={6} md={4}>
+        <Grid2 container spacing={2} justifyContent="center" sx={{display: "flex", flexWrap: { xs: "wrap", md: "nowrap" }}}>
+          <Grid2 item xs={12} sm={6} md={4}>
             <div onClick={() => navigateHandler("Admin")}>
               <StyledPaper elevation={3}>
                 <Box mb={2}>
@@ -100,8 +100,8 @@ const ChooseUser = ({ visitor }) => {
                 Login as an administrator to access the dashboard to manage app data.
               </StyledPaper>
             </div>
-          </Grid>
-          <Grid item xs={12} sm={6} md={4}>
+          </Grid2>
+          <Grid2 item xs={12} sm={6} md={4}>
             <StyledPaper elevation={3}>
               <div onClick={() => navigateHandler("Student")}>
                 <Box mb={2}>
@@ -113,8 +113,8 @@ const ChooseUser = ({ visitor }) => {
                 Login as a student to explore course materials and assignments.
               </div>
             </StyledPaper>
-          </Grid>
-          <Grid item xs={12} sm={6} md={4}>
+          </Grid2>
+          <Grid2 item xs={12} sm={6} md={4}>
             <StyledPaper elevation={3}>
               <div onClick={() => navigateHandler("Teacher")}>
                 <Box mb={2}>
@@ -126,8 +126,21 @@ const ChooseUser = ({ visitor }) => {
                 Login as a teacher to create courses, assignments, and track student progress.
               </div>
             </StyledPaper>
-          </Grid>
-        </Grid>
+          </Grid2>
+          <Grid2 item xs={12} sm={6} md={4}>
+            <StyledPaper elevation={3}>
+              <div onClick={() => navigateHandler("Teacher")}>
+                <Box mb={2}>
+                  <Group fontSize="large" />
+                </Box>
+                <StyledTypography>
+                  Staff
+                </StyledTypography>
+                Login as a Staff to create courses, assignments, and track student progress.
+              </div>
+            </StyledPaper>
+          </Grid2>
+        </Grid2>
       </Container>
       <Backdrop
         sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}

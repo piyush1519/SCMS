@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { Grid, Box, Typography, Paper, Checkbox, FormControlLabel, TextField, CssBaseline, IconButton, InputAdornment, CircularProgress} from '@mui/material';
+import { Grid2, Box, Typography, Paper, Checkbox, FormControlLabel, TextField, CssBaseline, IconButton, InputAdornment, CircularProgress} from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 import bgpic from "../../assets/designlogin.jpg"
@@ -76,9 +76,9 @@ const AdminRegisterPage = () => {
 
     return (
         <ThemeProvider theme={defaultTheme}>
-            <Grid container component="main" sx={{ height: '100vh' }}>
+            <Grid2 container component="main"  sx={{ height: '100vh', display: "flex", flexWrap: { xs: "wrap", md: "nowrap" }}}>
                 <CssBaseline />
-                <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+                <Grid2 item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
                     <Box
                         sx={{
                             my: 8,
@@ -161,12 +161,12 @@ const AdminRegisterPage = () => {
                                     ),
                                 }}
                             />
-                            <Grid container sx={{ display: "flex", justifyContent: "space-between" }}>
+                            <Grid2 container sx={{ display: "flex", justifyContent: "space-between" }}>
                                 <FormControlLabel
                                     control={<Checkbox value="remember" color="primary" />}
                                     label="Remember me"
                                 />
-                            </Grid>
+                            </Grid2>
                             <LightPurpleButton
                                 type="submit"
                                 fullWidth
@@ -175,20 +175,20 @@ const AdminRegisterPage = () => {
                             >
                                 {loader ? <CircularProgress size={24} color="inherit"/> : "Register"}
                             </LightPurpleButton>
-                            <Grid container>
-                                <Grid>
+                            <Grid2 container>
+                                <Grid2>
                                     Already have an account?
-                                </Grid>
-                                <Grid item sx={{ ml: 2 }}>
+                                </Grid2>
+                                <Grid2 item sx={{ ml: 2 }}>
                                     <StyledLink to="/Adminlogin">
                                         Log in
                                     </StyledLink>
-                                </Grid>
-                            </Grid>
+                                </Grid2>
+                            </Grid2>
                         </Box>
                     </Box>
-                </Grid>
-                <Grid
+                </Grid2>
+                <Grid2
                     item
                     xs={false}
                     sm={4}
@@ -202,7 +202,7 @@ const AdminRegisterPage = () => {
                         backgroundPosition: 'center',
                     }}
                 />
-            </Grid>
+            </Grid2>
             <Popup message={message} setShowPopup={setShowPopup} showPopup={showPopup} />
         </ThemeProvider>
     );

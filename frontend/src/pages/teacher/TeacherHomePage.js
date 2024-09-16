@@ -1,4 +1,4 @@
-import { Container, Grid, Paper } from '@mui/material'
+import { Container, Grid2, Paper } from '@mui/material'
 import SeeNotice from '../../components/SeeNotice';
 import CountUp from 'react-countup';
 import styled from 'styled-components';
@@ -30,8 +30,8 @@ const TeacherHomePage = () => {
     return (
         <>
             <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
-                <Grid container spacing={3}>
-                    <Grid item xs={12} md={3} lg={3}>
+                <Grid2 container spacing={3}>
+                    <Grid2 item xs={12} md={3} lg={3}>
                         <StyledPaper>
                             <img src={Students} alt="Students" />
                             <Title>
@@ -39,8 +39,8 @@ const TeacherHomePage = () => {
                             </Title>
                             <Data start={0} end={numberOfStudents} duration={2.5} />
                         </StyledPaper>
-                    </Grid>
-                    <Grid item xs={12} md={3} lg={3}>
+                    </Grid2>
+                    <Grid2 item xs={12} md={3} lg={3}>
                         <StyledPaper>
                             <img src={Lessons} alt="Lessons" />
                             <Title>
@@ -48,8 +48,8 @@ const TeacherHomePage = () => {
                             </Title>
                             <Data start={0} end={numberOfSessions} duration={5} />
                         </StyledPaper>
-                    </Grid>
-                    <Grid item xs={12} md={3} lg={3}>
+                    </Grid2>
+                    <Grid2 item xs={12} md={3} lg={3}>
                         <StyledPaper>
                             <img src={Tests} alt="Tests" />
                             <Title>
@@ -57,21 +57,21 @@ const TeacherHomePage = () => {
                             </Title>
                             <Data start={0} end={24} duration={4} />
                         </StyledPaper>
-                    </Grid>
-                    <Grid item xs={12} md={3} lg={3}>
+                    </Grid2>
+                    <Grid2 item xs={12} md={3} lg={3}>
                         <StyledPaper>
                             <img src={Time} alt="Time" />
                             <Title>
                                 Total Hours
                             </Title>
                             <Data start={0} end={30} duration={4} suffix="hrs"/>                        </StyledPaper>
-                    </Grid>
-                    <Grid item xs={12}>
+                    </Grid2>
+                    <Grid2 item xs={12}>
                         <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
                             <SeeNotice />
                         </Paper>
-                    </Grid>
-                </Grid>
+                    </Grid2>
+                </Grid2>
             </Container>
         </>
     )

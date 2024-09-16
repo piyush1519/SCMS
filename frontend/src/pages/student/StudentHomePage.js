@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Container, Grid, Paper, Typography } from '@mui/material'
+import { Container, Grid2, Paper, Typography } from '@mui/material'
 import { useDispatch, useSelector } from 'react-redux';
 import { calculateOverallAttendancePercentage } from '../../components/attendanceCalculator';
 import CustomPieChart from '../../components/CustomPieChart';
@@ -44,8 +44,8 @@ const StudentHomePage = () => {
     return (
         <>
             <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
-                <Grid container spacing={3}>
-                    <Grid item xs={12} md={3} lg={3}>
+                <Grid2 container spacing={3}>
+                    <Grid2 item xs={12} md={3} lg={3}>
                         <StyledPaper>
                             <img src={Subject} alt="Subjects" />
                             <Title>
@@ -54,8 +54,8 @@ const StudentHomePage = () => {
                             </Title>
                             
                         </StyledPaper>
-                    </Grid>
-                    <Grid item xs={12} md={3} lg={3}>
+                    </Grid2>
+                    <Grid2 item xs={12} md={3} lg={3}>
                         <StyledPaper>
                             <img src={Assignment} alt="Assignments" />
                             <Title>
@@ -64,8 +64,8 @@ const StudentHomePage = () => {
                             </Title>
                             
                         </StyledPaper>
-                    </Grid>
-                    <Grid item xs={12} md={4} lg={3}>
+                    </Grid2>
+                    <Grid2 item xs={12} md={4} lg={3}>
                         <ChartContainer>
                             {
                                 response ?
@@ -92,13 +92,13 @@ const StudentHomePage = () => {
                                     </>
                             }
                         </ChartContainer>
-                    </Grid>
-                    <Grid item xs={12}>
+                    </Grid2>
+                    <Grid2 item xs={12}>
                         <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
                             <SeeNotice />
                         </Paper>
-                    </Grid>
-                </Grid>
+                    </Grid2>
+                </Grid2>
             </Container>
         </>
     )

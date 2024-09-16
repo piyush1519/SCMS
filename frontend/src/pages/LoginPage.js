@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { Button, Grid, Box, Typography, Paper, Checkbox, FormControlLabel, TextField, CssBaseline, IconButton, InputAdornment, CircularProgress, Backdrop } from '@mui/material';
+import { Button, Grid2, Box, Typography, Paper, Checkbox, FormControlLabel, TextField, CssBaseline, IconButton, InputAdornment, CircularProgress, Backdrop } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 import bgpic from "../assets/designlogin.jpg"
@@ -122,14 +122,15 @@ const LoginPage = ({ role }) => {
     }, [status, currentRole, navigate, error, response, currentUser]);
 
     return (
-        <ThemeProvider theme={defaultTheme}>
-            <Grid container component="main" sx={{ height: '100vh' }}>
+        <ThemeProvider theme={defaultTheme} >
+            <Grid2 container component="main" sx={{ height:"100vh" ,display: "flex", flexWrap: { xs: "wrap", md: "nowrap" }}} >
                 <CssBaseline />
-                <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+                <Grid2 item xs={12} sm={8} md={5} component={Paper} elevation={6} square >
                     <Box
                         sx={{
                             my: 8,
                             mx: 4,
+                            
                             display: 'flex',
                             flexDirection: 'column',
                             alignItems: 'center',
@@ -213,7 +214,7 @@ const LoginPage = ({ role }) => {
                                     ),
                                 }}
                             />
-                            <Grid container sx={{ display: "flex", justifyContent: "space-between" }}>
+                            <Grid2 container sx={{ display: "flex", justifyContent: "space-between" }}>
                                 <FormControlLabel
                                     control={<Checkbox value="remember" color="primary" />}
                                     label="Remember me"
@@ -221,7 +222,7 @@ const LoginPage = ({ role }) => {
                                 <StyledLink href="#">
                                     Forgot password?
                                 </StyledLink>
-                            </Grid>
+                            </Grid2>
                             <LightPurpleButton
                                 type="submit"
                                 fullWidth
@@ -241,23 +242,23 @@ const LoginPage = ({ role }) => {
                                 Login as Guest
                             </Button>
                             {role === "Admin" &&
-                                <Grid container>
-                                    <Grid>
+                                <Grid2 container>
+                                    <Grid2>
                                         Don't have an account?
-                                    </Grid>
-                                    <Grid item sx={{ ml: 2 }}>
+                                    </Grid2>
+                                    <Grid2 item sx={{ ml: 2 }}>
                                         <StyledLink to="/Adminregister">
                                             Sign up
                                         </StyledLink>
-                                    </Grid>
-                                </Grid>
+                                    </Grid2>
+                                </Grid2>
                             }
                         </Box>
                     </Box>
-                </Grid>
-                <Grid
+                </Grid2>
+                <Grid2
                     item
-                    xs={false}
+                    // xs={false}
                     sm={4}
                     md={7}
                     sx={{
@@ -269,7 +270,7 @@ const LoginPage = ({ role }) => {
                         backgroundPosition: 'center',
                     }}
                 />
-            </Grid>
+            </Grid2>
             <Backdrop
                 sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
                 open={guestLoader}

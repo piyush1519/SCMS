@@ -1,4 +1,4 @@
-import { Box, Container, Grid, Paper } from '@mui/material'
+import { Box, Container, Grid2, Paper } from '@mui/material'
 import SeeNotice from '../../components/SeeNotice';
 import Students from "../../assets/img1.png";
 import Classes from "../../assets/img2.png";
@@ -12,8 +12,7 @@ import { getAllSclasses } from '../../redux/sclassRelated/sclassHandle';
 import { getAllStudents } from '../../redux/studentRelated/studentHandle';
 import { getAllTeachers } from '../../redux/teacherRelated/teacherHandle';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
-import Calendar from '../../components/Calender';
-import CalendarGfg from '../../components/Calender';
+import BasicDateCalendar from '../../components/calendar';
 
 const AdminHomePage = () => {
     const dispatch = useDispatch();
@@ -64,38 +63,45 @@ const AdminHomePage = () => {
     return (
         <>
             <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
-                <Grid container spacing={3}>
-                    <Grid item xs={12} md={3} lg={3}>
+
+                <Grid2 spacing={4}>
+
+                    <Grid2 container width="100%"  sx={{
+                        display: "flex",
+                        justifyContent: "center"
+                    }} spacing={2} >
+
+                    <Grid2   xs={12} md={3} lg={3}>
                         <StyledPaper>
                             <img src={Students} alt="Students" />
                             <Title>
                                 Total Students
                                 <Data start={0} end={numberOfStudents} duration={2.5} />
                             </Title>
-                            
                         </StyledPaper>
-                    </Grid>
-                    <Grid item xs={12} md={3} lg={3}>
+                    </Grid2>
+
+                    <Grid2   xs={12} md={3} lg={3}>
                         <StyledPaper>
                             <img src={Classes} alt="Classes" />
                             <Title>
                                 Total Classes
                                 <Data start={0} end={numberOfClasses} duration={5} />
                             </Title>
-                            
                         </StyledPaper>
-                    </Grid>
-                    <Grid item xs={12} md={3} lg={3}>
+                    </Grid2>
+
+                    <Grid2   xs={12} md={3} lg={3}>
                         <StyledPaper>
                             <img src={Teachers} alt="Teachers" />
                             <Title>
                                 Total Teachers
                                 <Data start={0} end={numberOfTeachers} duration={2.5} />
                             </Title>
-                            
                         </StyledPaper>
-                    </Grid>
-                    <Grid item xs={12} md={3} lg={3}>
+                    </Grid2>
+
+                    <Grid2   xs={12} md={3} lg={3}>
                         <StyledPaper>
                             <img src={Fees} alt="Fees" />
                             <Title>
@@ -103,90 +109,108 @@ const AdminHomePage = () => {
                                 <Data start={0} end={23000} duration={2.5} prefix="$" />   
                             </Title>
                         </StyledPaper>
-                    </Grid>
-                    <Grid container maxWidth="lg"  sx={{ display: "flex", mt: 2, mb: 2 }} spacing={2}>
-                    <Grid item xs={12} md={6}>
-                    <Box sx={{ padding:"20px", width: 600, height: 400 }}>
-                    <Grid item xs={12} md={12} lg={12}>
-                        <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
-                        <Title> Notices</Title>
-                            <SeeNotice />
-                        </Paper>
-                    </Grid>
-                    </Box>
-                    </Grid>
-                    <Grid item xs={12} md={6}>
-                    <Box sx={{ padding:"20px", width: 600, height: 400 }}>
-                        
-                        <Paper sx={{ height: "100%", p: 2, display: 'flex', flexDirection: 'column' }}>
-                        <Title> Average Expenses</Title>
-                    <ResponsiveContainer sx ={{ width:"100%", height:"100%",  }} >
-        <AreaChart
-          width={500}
-          height={400}
-          data={data}
-          margin={{
-            top: 10,
-            right: 30,
-            left: 0,
-            bottom: 0,
-          }}
-        >
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" />
-          <YAxis />
-          <Tooltip />
-          <Area type="monotone" dataKey="uv" stroke="#8884d8" fill="#8884d8" />
-        </AreaChart>
-      </ResponsiveContainer>
-      </Paper>
-                    </Box>
-                    </Grid>
-                    </Grid>
-                        
+                    </Grid2>
 
+                    </Grid2>
 
-                    <Grid container maxWidth="lg"  sx={{ padding: "-20px", display: "flex", mt: 2, mb: 2 }} spacing={2}>
-                    <Grid item xs={12} md={6}>
-                    <Box sx={{ padding:"20px", width: 600, height: 400 }}>
-                    <Grid item xs={12} md={12} lg={12}>
-                        <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
-                        <Title> Calendar</Title>
-                            <CalendarGfg />
-                        </Paper>
-                    </Grid>
-                    </Box>
-                    </Grid>
-                    <Grid item xs={12} md={6}>
-                    <Box sx={{ padding:"20px", width: 600, height: 400 }}>
-                        
-                        <Paper sx={{ height: "100%", p: 2, display: 'flex', flexDirection: 'column' }}>
-                        <Title> Average Expenses</Title>
-                    <ResponsiveContainer sx ={{ width:"100%", height:"100%",  }} >
-        <AreaChart
-          width={500}
-          height={400}
-          data={data}
-          margin={{
-            top: 10,
-            right: 30,
-            left: 0,
-            bottom: 0,
-          }}
-        >
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" />
-          <YAxis />
-          <Tooltip />
-          <Area type="monotone" dataKey="uv" stroke="#8884d8" fill="#8884d8" />
-        </AreaChart>
-      </ResponsiveContainer>
-      </Paper>
-                    </Box>
-                    </Grid>
-                    </Grid>   
                     
-                </Grid>
+
+                    <Grid2 container width="100%"  sx={{ mt: 4, mb: 4, padding: "0" }} spacing={1}>
+
+                      {/* <Grid2 item xs={12} md={6}
+                          sx={{
+                            display: 'flex',
+                            justifyContent: 'center', 
+                            alignItems: 'center',      
+                          }}
+                      > */}
+                        <Box sx={{ padding:"10px", width: { xs: '100%', md: 550 }, height: 500 }}>
+                            <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column', height: "100%" }}>
+                              <Title> Notices</Title>
+                                <SeeNotice />
+                            </Paper>
+                        </Box>
+                      {/* </Grid2> */}
+
+                      {/* <Grid2 item xs={12} md={6}
+                          sx={{
+                            display: 'flex',
+                            justifyContent: 'center', 
+                            alignItems: 'center',      
+                          }}
+                      > */}
+                        <Box sx={{ padding:"10px" ,width: { xs: '100%', md: 550 }, height: 500 }}>
+                          <Paper sx={{  p: 2, display: 'flex', flexDirection: 'column', height: "100%" }}>
+                            <Title> Average Expenses</Title>
+                              <ResponsiveContainer sx ={{ width:"100%", height:"100%",  }} >
+                                <AreaChart
+                                  width={500}
+                                  height={400}
+                                  data={data}
+                                  margin={{
+                                    top: 10,
+                                    right: 30,
+                                    left: 0,
+                                    bottom: 0,
+                                  }}
+                                >
+                                  <CartesianGrid strokeDasharray="3 3" />
+                                  <XAxis dataKey="name" />
+                                  <YAxis />
+                                  <Tooltip />
+                                  <Area type="monotone" dataKey="uv" stroke="#8884d8" fill="#8884d8" />
+                                </AreaChart>
+                              </ResponsiveContainer>
+                         </Paper>
+                        </Box>
+                      {/* </Grid2> */}
+                    </Grid2>
+
+
+                    <Grid2 container width="100%"  sx={{ mt: 4, mb: 4, padding: "0" }} spacing={1}>
+
+                      
+                        <Box sx={{ padding:"10px" ,width: { xs: '100%', md: 550 }, height: 500 }}>
+                          <Paper sx={{  p: 2, display: 'flex', flexDirection: 'column', height: "100%" }}>
+                            <Title> Average Expenses</Title>
+                              <ResponsiveContainer sx ={{ width:"100%", height:"100%",  }} >
+                                <AreaChart
+                                  width={500}
+                                  height={400}
+                                  data={data}
+                                  margin={{
+                                    top: 10,
+                                    right: 30,
+                                    left: 0,
+                                    bottom: 0,
+                                  }}
+                                >
+                                  <CartesianGrid strokeDasharray="3 3" />
+                                  <XAxis dataKey="name" />
+                                  <YAxis />
+                                  <Tooltip />
+                                  <Area type="monotone" dataKey="uv" stroke="#8884d8" fill="#8884d8" />
+                                </AreaChart>
+                              </ResponsiveContainer>
+                         </Paper>
+                        </Box>
+                      
+
+                      
+                        <Box sx={{ padding:"10px", width: { xs: '100%', md: 550 }, height: 500 }}>
+                            <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column', height: "100%" }}>
+                              
+                                <BasicDateCalendar />
+                            </Paper>
+                        </Box>
+                      </Grid2>
+
+
+                    
+                        
+                     
+                    
+                </Grid2>
             </Container>
         </>
     );
@@ -194,11 +218,12 @@ const AdminHomePage = () => {
 
 
 const StyledPaper = styled(Paper)`
-  padding: 16px;
+
+  padding: 30px;
   display: flex;
 //   flex-direction: column;
-  height: 100px;
-  justify-content: space-evenly;
+  height: 120px;
+  justify-content: space-between;
   align-items: center;
   text-align: center;
 `;

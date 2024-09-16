@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Container, Grid, Box, Button } from '@mui/material';
+import { Container, Grid2, Box, Button } from '@mui/material';
 import styled from 'styled-components';
 import images from "../assets/images.jpg";
 import { GreenButton, LightPurpleButton } from '../components/buttonStyles';
@@ -8,11 +8,11 @@ import { GreenButton, LightPurpleButton } from '../components/buttonStyles';
 const Homepage = () => {
     return (
         <StyledContainer >
-            <Grid container spacing={0}>
-                <Grid item xs={12} md={6}>
+            <Grid2 container spacing={0} sx={{display: "flex", flexWrap: { xs: "wrap", md: "nowrap" }}}>
+                <Grid2 item xs={12} md={6}>
                     { <img src={images} alt="images" style={{ width: '100%' }} /> }
-                </Grid>
-                <Grid item xs={12} md={6}>
+                </Grid2>
+                <Grid2 item xs={12} md={6}>
                     <StyledPaper elevation={3}>
                         <StyledTitle>
                             Smart
@@ -47,8 +47,8 @@ const Homepage = () => {
                             </StyledText>
                         </StyledBox>
                     </StyledPaper>
-                </Grid>
-            </Grid>
+                </Grid2>
+            </Grid2>
         </StyledContainer>
     );
 };
@@ -60,7 +60,7 @@ const StyledContainer = styled(Container)`
   justify-content: center;
   align-items: center;
   height: 100vh;
-  padding 50px 50px 50px 50px;
+  padding 120px 50px 50px 50px;
 `;
 
 const StyledPaper = styled.div`

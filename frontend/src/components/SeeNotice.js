@@ -25,9 +25,9 @@ const SeeNotice = () => {
     }
 
     const noticeColumns = [
-        { id: 'title', label: 'Title', minWidth: 170 },
-        { id: 'details', label: 'Details', minWidth: 100 },
-        { id: 'date', label: 'Date', minWidth: 170 },
+        { id: 'title', label: 'Title', minWidth: 100 },
+        { id: 'details', label: 'Details', minWidth: 170 },
+        { id: 'date', label: 'Date', minWidth: 100 },
     ];
 
     const noticeRows = noticesList.map((notice) => {
@@ -49,7 +49,7 @@ const SeeNotice = () => {
             ) : (
                 <>
                     {/* <h3 style={{ fontSize: '30px', marginBottom: '40px' }}>Notices</h3> */}
-                    <Paper sx={{ width: '100%', overflow: 'hidden' }}>
+                    <Paper sx={{ width: '100%', height: '68%', overflow: 'scroll' }}>
                         {Array.isArray(noticesList) && noticesList.length > 0 &&
                             <TableViewTemplate columns={noticeColumns} rows={noticeRows} />
                         }
