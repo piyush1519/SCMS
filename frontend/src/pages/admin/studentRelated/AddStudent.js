@@ -17,6 +17,12 @@ const AddStudent = ({ situation }) => {
     const { sclassesList } = useSelector((state) => state.sclass);
 
     const [name, setName] = useState('');
+    const [email, setEmail] = useState("");
+    const [gender, setGender] = useState("");
+    const [dob, setDob] = useState("");
+    const [phoneNo, setPhoneNo] = useState("");
+    const [cAddress, setCAddress] = useState("");
+    const [pAddress, setPAddress] = useState("");
     const [rollNum, setRollNum] = useState('');
     const [password, setPassword] = useState('')
     const [className, setClassName] = useState('')
@@ -53,7 +59,7 @@ const AddStudent = ({ situation }) => {
         }
     }
 
-    const fields = { name, rollNum, password, sclassName, adminID, role, attendance }
+    const fields = { name, rollNum,email,phoneNo,gender,dob,cAddress,pAddress, password, sclassName, adminID, role, attendance }
 
     const submitHandler = (event) => {
         event.preventDefault()
@@ -87,8 +93,15 @@ const AddStudent = ({ situation }) => {
     return (
         <>
             <div className="register">
+            <style>
+                    {`
+                    .registerForm {
+                       margin-top: 200px
+                    }`}
+                  </style>
                 <form className="registerForm" onSubmit={submitHandler}>
                     <span className="registerTitle">Add Student</span>
+                    
                     <label>Name</label>
                     <input className="registerInput" type="text" placeholder="Enter student's name..."
                         value={name}
@@ -112,6 +125,78 @@ const AddStudent = ({ situation }) => {
                             </select>
                         </>
                     }
+                    <label>Email</label>
+                    <input
+                      className="registerInput"
+                      type="email"
+                      placeholder="Enter student's Email..."
+                      value={email}
+                      onChange={(event) => setEmail(event.target.value)}
+                      autoComplete="email"
+                      
+                      
+                    />
+
+                    <label>Phone No.</label>
+                    <input
+                      className="registerInput"
+                      type="tel"
+                      placeholder="Enter student's Phone no...."
+                      value={phoneNo}
+                      onChange={(event) => setPhoneNo(event.target.value)}
+                      
+                      
+                      
+                    />
+
+                    <label>Gender</label>
+                    <input
+                      className="registerInput"
+                      type="text"
+                      placeholder="Enter student's gender..."
+                      value={gender}
+                      onChange={(event) => setGender(event.target.value)}
+                      
+                      autoComplete="gender"
+                      
+                    />
+
+                    <label>Date of Birth</label>
+                    <input
+                      className="registerInput"
+                      type="Date"
+                      placeholder="Enter student's Date of birth..."
+                      value={dob}
+                      onChange={(event) => setDob(event.target.value)}
+                     
+                      autoComplete="dob"
+                      
+                    />
+
+                    <label>Current Address</label>
+                    <input
+                      className="registerInput"
+                      type="text"
+                      placeholder="Enter student's Current Address..."
+                      value={cAddress}
+                      onChange={(event) => setCAddress(event.target.value)}
+                    
+                      autoComplete="cAddress"
+                      
+                    />
+
+                    <label>Permenent Address</label>
+                    <input
+                      
+                      className="registerInput"
+                      type="text"
+                      placeholder="Enter student's Address..."
+                      value={pAddress}
+                      onChange={(event) => setPAddress(event.target.value)}
+                      
+                      autoComplete="pAdress"
+                     
+                    />
 
                     <label>Roll Number</label>
                     <input className="registerInput" type="number" placeholder="Enter student's Roll Number..."

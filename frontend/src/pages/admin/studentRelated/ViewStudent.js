@@ -83,7 +83,7 @@ const ViewStudent = () => {
   } else if (error) {
     console.log(error);
   }
-
+  // const [loader, setLoader] = useState(false)
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phoneNo, setPhoneNo] = useState("");
@@ -122,7 +122,7 @@ const ViewStudent = () => {
   };
 
   const fields =
-    password === "" ? { name, rollNum } : { name, rollNum, password };
+    password === "" ? { name, rollNum,phoneNo } : { name, rollNum,phoneNo, password };
 
   useEffect(() => {
     if (userDetails) {
@@ -151,6 +151,44 @@ const ViewStudent = () => {
         console.error(error);
       });
   };
+//   const updatedFields = {
+//     name,
+//     email,
+//     phoneNo,
+//     gender,
+//     dob,
+//     cAddress,
+//     pAddress,
+//     rollNum,
+//     password
+//   };
+// const submitHandler = (event) => { 
+//     event.preventDefault();
+  
+//     // Ensure all form fields are updated before dispatching
+//     // const updatedFields = {
+//     //   name,
+//     //   email,
+//     //   phoneNo,
+//     //   gender,
+//     //   dob,
+//     //   cAddress,
+//     //   pAddress,
+//     //   rollNum,
+//     //   password
+//     // };
+    
+//     // Dispatch the action to update user details
+//     dispatch(updateUser(updatedFields, studentID, address))
+//       .then(() => {
+//         // Only after updating, fetch the user details again
+//         return dispatch(getUserDetails(studentID, address));
+//       })
+//       .catch((error) => {
+//         console.error("Error updating user details:", error);
+//       });
+//   };
+  
 
   const deleteHandler = () => {
     // setMessage("Sorry the delete function has been disabled for now.")
@@ -415,17 +453,19 @@ const ViewStudent = () => {
             <TableHead>
               <StyledTableRow>
                 <StyledTableCell>Subject</StyledTableCell>
+                <StyledTableCell>Exam Name</StyledTableCell>
                 <StyledTableCell>Marks</StyledTableCell>
               </StyledTableRow>
             </TableHead>
             <TableBody>
               {subjectMarks.map((result, index) => {
-                if (!result.subName || !result.marksObtained) {
+                if (!result.subName || !result.marksObtained ||!result.examName) {
                   return null;
                 }
                 return (
                   <StyledTableRow key={index}>
                     <StyledTableCell>{result.subName.subName}</StyledTableCell>
+                    <StyledTableCell>{result.examName}</StyledTableCell>
                     <StyledTableCell>{result.marksObtained}</StyledTableCell>
                   </StyledTableRow>
                 );
@@ -692,10 +732,10 @@ const ViewStudent = () => {
                 }}
               >
                 {showTab ? <KeyboardArrowUp /> : <KeyboardArrowDown />}
-                Edit Student
+                Edit Student Password
               </Button>
             </Grid2>
-
+           
             <Grid2
               sx={{
                 display: "flex",
@@ -713,90 +753,25 @@ const ViewStudent = () => {
                   </style>
                   <form className="registerForm" onSubmit={submitHandler}>
                     <span className="registerTitle">Edit Details</span>
-                    <label>Name</label>
-                    <input
-                      className="registerInput"
-                      type="text"
-                      placeholder="Enter student's name..."
-                      value={name}
-                      onChange={(event) => setName(event.target.value)}
-                      autoComplete="name"
-                      required
-                    />
-
-                    <label>Email</label>
-                    <input
-                      className="registerInput"
-                      type="text"
-                      placeholder="Enter student's Email..."
-                      value={email}
-                      onChange={(event) => setEmail(event.target.value)}
-                      required
-                    />
+                    
+                      
+                      
+                    
 
                     <label>Phone No.</label>
                     <input
                       className="registerInput"
-                      type="text"
+                      type="tel"
                       placeholder="Enter student's Phone no...."
                       value={phoneNo}
                       onChange={(event) => setPhoneNo(event.target.value)}
-                      required
+                      
+                      
+                      
                     />
 
-                    <label>Gender</label>
-                    <input
-                      className="registerInput"
-                      type="text"
-                      placeholder="Enter student's gender..."
-                      value={gender}
-                      onChange={(event) => setGender(event.target.value)}
-                      autoComplete="gender"
-                      required
-                    />
 
-                    <label>Date of Birth</label>
-                    <input
-                      className="registerInput"
-                      type="Date"
-                      placeholder="Enter student's Date of birth..."
-                      value={dob}
-                      onChange={(event) => setDob(event.target.value)}
-                      autoComplete="dob"
-                      required
-                    />
-
-                    <label>Current Address</label>
-                    <input
-                      className="registerInput"
-                      type="text"
-                      placeholder="Enter student's Current Address..."
-                      value={cAddress}
-                      onChange={(event) => setCAddress(event.target.value)}
-                      autoComplete="cAddress"
-                      required
-                    />
-
-                    <label>Permenent Address</label>
-                    <input
-                      className="registerInput"
-                      type="text"
-                      placeholder="Enter student's Address..."
-                      value={pAddress}
-                      onChange={(event) => setPAddress(event.target.value)}
-                      autoComplete="pAdress"
-                      required
-                    />
-
-                    <label>Roll Number</label>
-                    <input
-                      className="registerInput"
-                      type="number"
-                      placeholder="Enter student's Roll Number..."
-                      value={rollNum}
-                      onChange={(event) => setRollNum(event.target.value)}
-                      required
-                    />
+                 
 
                     <label>Password</label>
                     <input
@@ -805,6 +780,7 @@ const ViewStudent = () => {
                       placeholder="Enter user's password..."
                       value={password}
                       onChange={(event) => setPassword(event.target.value)}
+                      autoFocus
                       autoComplete="new-password"
                     />
 
