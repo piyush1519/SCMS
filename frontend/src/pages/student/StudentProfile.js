@@ -14,43 +14,46 @@ const StudentProfile = () => {
 
   return (
     <>
-      <Container maxWidth="md">
+      <Container maxWidth="md" sx={{padding: "30px"}}>
         <StyledPaper elevation={3}>
-          <Grid2 container spacing={2}>
-            <Grid2 item xs={12}>
+          <Grid2 container spacing={2} sx={{display: "flex", justifyContent: "space-evenly"}}>
+            <Grid2  xs={12}>
               <Box display="flex" justifyContent="center">
                 <Avatar alt="Student Avatar" sx={{ width: 150, height: 150 }}>
                   {String(currentUser.name).charAt(0)}
                 </Avatar>
               </Box>
             </Grid2>
-            <Grid2 item xs={12}>
+            
+            <Grid2 sx={{display: "flex",flexDirection: "column", flexWrap: { xs: "wrap", md: "nowrap" }}}>
+            <Grid2  xs={12}>
               <Box display="flex" justifyContent="center">
                 <Typography variant="h5" component="h2" textAlign="center">
                   {currentUser.name}
                 </Typography>
               </Box>
             </Grid2>
-            <Grid2 item xs={12}>
+            <Grid2  xs={12}>
               <Box display="flex" justifyContent="center">
                 <Typography variant="subtitle1" component="p" textAlign="center">
                   Student Roll No: {currentUser.rollNum}
                 </Typography>
               </Box>
             </Grid2>
-            <Grid2 item xs={12}>
+            <Grid2  xs={12}>
               <Box display="flex" justifyContent="center">
                 <Typography variant="subtitle1" component="p" textAlign="center">
                   Class: {sclassName.sclassName}
                 </Typography>
               </Box>
             </Grid2>
-            <Grid2 item xs={12}>
+            <Grid2  xs={12}>
               <Box display="flex" justifyContent="center">
                 <Typography variant="subtitle1" component="p" textAlign="center">
                   School: {studentSchool.schoolName}
                 </Typography>
               </Box>
+            </Grid2>
             </Grid2>
           </Grid2>
         </StyledPaper>

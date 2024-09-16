@@ -9,10 +9,36 @@ const studentSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
+    email: {
+        type: String,
+        unique: true,
+        required: true
+    },
+    phoneNo: {
+        type: Number,
+        required: true
+    },
+    gender: {
+        type: String,
+        required: true
+    },
+    dob: {
+        type: Date,
+        required: true
+    },
     password: {
         type: String,
         required: true
     },
+    cAddress: {
+        type:String,
+        required: true
+    },
+    pAddress: {
+        type:String,
+        required: true
+    },
+
     sclassName: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'sclass',
