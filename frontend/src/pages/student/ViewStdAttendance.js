@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { KeyboardArrowDown, KeyboardArrowUp } from '@mui/icons-material';
-import { BottomNavigation, BottomNavigationAction, Box, Button, Collapse, Paper, Table, TableBody, TableHead, Typography } from '@mui/material';
+import { BottomNavigation, BottomNavigationAction, Box, Button, Collapse, Container, Paper, Table, TableBody, TableHead, Typography } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserDetails } from '../../redux/userRelated/userHandle';
 import { calculateOverallAttendancePercentage, calculateSubjectAttendancePercentage, groupAttendanceBySubject } from '../../components/attendanceCalculator';
@@ -63,7 +63,7 @@ const ViewStdAttendance = () => {
 
     const renderTableSection = () => {
         return (
-            <>
+            <Container maxWidth="lg" sx={{ padding: { xs: "20px", md: "50px" }, display: "flex", flexDirection: "column", gap: "5px", alignItems: "center"}}>
                 <Typography variant="h4" align="center" gutterBottom>
                     Attendance
                 </Typography>
@@ -135,7 +135,7 @@ const ViewStdAttendance = () => {
                 <div>
                     Overall Attendance Percentage: {overallAttendancePercentage.toFixed(2)}%
                 </div>
-            </>
+            </Container>
         )
     }
 

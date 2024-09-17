@@ -49,7 +49,7 @@ const SeeNotice = () => {
             ) : (
                 <>
                     {/* <h3 style={{ fontSize: '30px', marginBottom: '40px' }}>Notices</h3> */}
-                    <Paper sx={{ width: '100%', height: '68%', overflow: 'scroll' }}>
+                    <Paper sx={{ width: '100%', height: { xs: 400}, overflow: 'scroll' }}>
                         {Array.isArray(noticesList) && noticesList.length > 0 &&
                             <TableViewTemplate columns={noticeColumns} rows={noticeRows} />
                         }

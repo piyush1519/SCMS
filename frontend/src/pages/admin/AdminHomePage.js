@@ -36,29 +36,55 @@ const AdminHomePage = () => {
 
     const data = [
         {
-          name: 'Page A',
+          name: 'June',
           uv: 4000,
           pv: 2400,
           amt: 2400,
         },
         {
-          name: 'Page B',
+          name: 'July',
           uv: 3000,
           pv: 1398,
           amt: 2210,
         },
     {
-    name: 'Page C',
+    name: 'Aug',
     uv: 2000,
     pv: 9800,
     amt: 2290,
   },
   {
-    name: 'Page D',
+    name: 'Sep',
     uv: 2780,
     pv: 3908,
     amt: 2000,
   }];
+
+  const data1 = [
+    {
+      name: 'June',
+      uv: 4000,
+      pv: 2400,
+      amt: 2400,
+    },
+    {
+      name: 'July',
+      uv: 3000,
+      pv: 1398,
+      amt: 2210,
+    },
+{
+name: 'Aug',
+uv: 2000,
+pv: 9800,
+amt: 2290,
+},
+{
+name: 'Sep',
+uv: 2780,
+pv: 3908,
+amt: 2000,
+}];
 
     return (
         <>
@@ -124,7 +150,7 @@ const AdminHomePage = () => {
                             alignItems: 'center',      
                           }}
                       > */}
-                        <Box sx={{ padding:"10px", width: { xs: '100%', md: 550 }, height: 500 }}>
+                        <Box sx={{ padding:"10px", width: { xs: '100%', md: 550 }, height: 500}}>
                             <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column', height: "100%" }}>
                               <Title> Notices</Title>
                                 <SeeNotice />
@@ -172,12 +198,12 @@ const AdminHomePage = () => {
                       
                         <Box sx={{ padding:"10px" ,width: { xs: '100%', md: 550 }, height: 500 }}>
                           <Paper sx={{  p: 2, display: 'flex', flexDirection: 'column', height: "100%" }}>
-                            <Title> Average Expenses</Title>
+                            <Title>Students Count</Title>
                             <ResponsiveContainer width="100%" height="100%">
                               <BarChart
                                 width={500}
                                 height={300}
-                                data={data}
+                                data={data1}
                                 margin={{
                                   top: 5,
                                   right: 30,
@@ -190,8 +216,7 @@ const AdminHomePage = () => {
                                 <YAxis />
                                 <Tooltip />
                                 <Legend />
-                                <Bar dataKey="pv" fill="#8884d8" activeBar={<Rectangle fill="pink" stroke="blue" />} />
-                                <Bar dataKey="uv" fill="#82ca9d" activeBar={<Rectangle fill="gold" stroke="purple" />} />
+                                <Bar dataKey="pv" fill="var(--secondary-color-light)" activeBar={<Rectangle fill="var(--secondary-color-light)" stroke="blue" />} />
                               </BarChart>
                             </ResponsiveContainer>
                          </Paper>

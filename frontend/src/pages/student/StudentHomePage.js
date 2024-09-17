@@ -10,6 +10,8 @@ import CountUp from 'react-countup';
 import Subject from "../../assets/subjects.svg";
 import Assignment from "../../assets/assignment.svg";
 import { getSubjectList } from '../../redux/sclassRelated/sclassHandle';
+import { Pie, PieChart, ResponsiveContainer } from 'recharts';
+import BasicDateCalendar from '../../components/calendar';
 
 const StudentHomePage = () => {
     const dispatch = useDispatch();
@@ -41,17 +43,34 @@ const StudentHomePage = () => {
         { name: 'Present', value: overallAttendancePercentage },
         { name: 'Absent', value: overallAbsentPercentage }
     ];
+
+    const data01 = [
+        { name: 'Group A', value: 400 },
+        { name: 'Group B', value: 300 },
+        { name: 'Group C', value: 300 },
+        { name: 'Group D', value: 200 },
+      ];
     return (
         <>
             <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
-                <Grid2 container spacing={3}>
+                <Grid2 container spacing={3}  width="100%"  sx={{
+                        display: "flex",
+                        justifyContent: "center"
+                    }}>
                     <Grid2 item xs={12} md={3} lg={3}>
-                        <StyledPaper>
-                            <img src={Subject} alt="Subjects" />
+                        <StyledPaper sx={{width: "320px", display: "flex", flexDirection: "column"}}>
+                            
                             <Title>
                                 Total Subjects
-                                <Data start={0} end={numberOfSubjects} duration={2.5} />
+                                
                             </Title>
+
+                            <ResponsiveContainer width="100%" height="100%">
+                                <PieChart width={600} height={600}>
+                                    <Pie data={data01} dataKey="value" cx="50%" cy="50%" innerRadius={70} outerRadius={90} fill="#82ca9d" label />
+         
+                                </PieChart>
+                            </ResponsiveContainer>
                             
                         </StyledPaper>
                     </Grid2>
@@ -60,9 +79,13 @@ const StudentHomePage = () => {
                             <img src={Assignment} alt="Assignments" />
                             <Title>
                                 Total Assignments
-                                <Data start={0} end={15} duration={4} />
                             </Title>
                             
+                        </StyledPaper>
+                    </Grid2>
+                    <Grid2 item xs={12} md={3} lg={3}>
+                        <StyledPaper sx={{paddingTop: "70px"}}>
+                            <BasicDateCalendar/>  
                         </StyledPaper>
                     </Grid2>
                     <Grid2 item xs={12} md={4} lg={3}>
@@ -119,7 +142,7 @@ const StyledPaper = styled(Paper)`
   display: flex;
 //   flex-wrap = wrap;
 //   flex-direction: column;
-  height: 100px;
+  height: 400px;
   justify-content: space-evenly;
   align-items: center;
   text-align: center;

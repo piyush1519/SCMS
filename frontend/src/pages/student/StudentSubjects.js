@@ -10,6 +10,7 @@ import InsertChartOutlinedIcon from '@mui/icons-material/InsertChartOutlined';
 import TableChartIcon from '@mui/icons-material/TableChart';
 import TableChartOutlinedIcon from '@mui/icons-material/TableChartOutlined';
 import { StyledTableCell, StyledTableRow } from '../../components/styles';
+import styled from 'styled-components';
 
 const StudentSubjects = () => {
 
@@ -80,24 +81,27 @@ const StudentSubjects = () => {
 
     const renderClassDetailsSection = () => {
         return (
-            <Container>
-                <Typography variant="h4" align="center" gutterBottom>
+            <Container maxWidth="md" sx={{ padding: "50px", display: "flex", flexDirection: "column", gap: "5px", alignItems: "center"}}>
+              <StyledPaper>
+                <Typography variant="h4" align="center" gutterBottom sx={{color: "var(--text-primary-color-light)", padding: "20px"}}>
                     Class Details
                 </Typography>
-                <Typography variant="h5" gutterBottom>
+                <Typography variant="h5" gutterBottom sx={{color: "var(--text-primary-color-light)", padding: "15px"}}>
                     You are currently in Class {sclassDetails && sclassDetails.sclassName}
                 </Typography>
-                <Typography variant="h6" gutterBottom>
+                <Typography variant="h6" gutterBottom sx={{color: "var(--text-primary-color-light)", padding: "15px"}}>
                     And these are the subjects:
                 </Typography>
                 {subjectsList &&
                     subjectsList.map((subject, index) => (
                         <div key={index}>
-                            <Typography variant="subtitle1">
+                            <Typography variant="subtitle1" sx={{color: "var(--text-primary-color-light)", padding: "10px"}}>
                                 {subject.subName} ({subject.subCode})
                             </Typography>
                         </div>
                     ))}
+
+                  </StyledPaper>  
             </Container>
         );
     };
@@ -141,3 +145,8 @@ const StudentSubjects = () => {
 };
 
 export default StudentSubjects;
+
+const StyledPaper = styled(Paper)`
+  padding: 20px;
+  margin-bottom: 20px;
+`;

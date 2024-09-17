@@ -4,7 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { getAllStudents } from '../../../redux/studentRelated/studentHandle';
 import { deleteUser } from '../../../redux/userRelated/userHandle';
 import {
-    Paper, Box, IconButton
+    Paper, Box, IconButton,
+    Container
 } from '@mui/material';
 import PersonRemoveIcon from '@mui/icons-material/PersonRemove';
 import { BlackButton, BlueButton, GreenButton } from '../../../components/buttonStyles';
@@ -109,7 +110,7 @@ const ShowStudents = () => {
             setOpen(false);
         };
         return (
-            <>
+            < Container sx={{display: "flex" , justifyContent: "space-evenly"}}>
                 <IconButton onClick={() => deleteHandler(row.id, "Student")}>
                     <PersonRemoveIcon color="error" />
                 </IconButton>
@@ -169,7 +170,7 @@ const ShowStudents = () => {
                         )}
                     </Popper>
                 </React.Fragment>
-            </>
+            </Container>
         );
     };
 

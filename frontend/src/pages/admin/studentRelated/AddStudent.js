@@ -5,7 +5,8 @@ import { registerUser } from '../../../redux/userRelated/userHandle';
 import Popup from '../../../components/Popup';
 import { underControl } from '../../../redux/userRelated/userSlice';
 import { getAllSclasses } from '../../../redux/sclassRelated/sclassHandle';
-import { CircularProgress } from '@mui/material';
+import { CircularProgress, Grid2 } from '@mui/material';
+import { Container } from '@mui/system';
 
 const AddStudent = ({ situation }) => {
     const dispatch = useDispatch()
@@ -91,25 +92,38 @@ const AddStudent = ({ situation }) => {
     }, [status, navigate, error, response, dispatch]);
 
     return (
-        <>
+        <Container maxWidth="md" sx={{paddingTop:{ xs: "210px", md: "10px" }, height: "100vh"}}>
             <div className="register">
-            <style>
+                <style>
                     {`
                     .registerForm {
-                       margin-top: 200px
-                    }`}
+                        width: 100%;
+                       margin-top: 20px;
+                       display: grid;
+                       grid-template-columns: repeat(2, 1fr);
+                       gap: 10px
+                    }
+                    @media (max-width: 768px) {
+                        .registerForm {
+                            grid-template-columns: 1fr; /* Switch to a single column */
+                        }
+                    }
+                    `}
                   </style>
+                  <span className="registerTitle">Add Student</span>
                 <form className="registerForm" onSubmit={submitHandler}>
-                    <span className="registerTitle">Add Student</span>
+                    
+                    
+                    <div style={{display: "flex", flexDirection: "column", padding: "10px", gap: "10px"}}>
                     <label>Name</label>
                     <input className="registerInput" type="text" placeholder="Enter student's name..."
                         value={name}
                         onChange={(event) => setName(event.target.value)}
                         autoComplete="name" required />
-
+                    </div>
                     {
                         situation === "Student" &&
-                        <>
+                        <div style={{display: "flex", flexDirection: "column", padding: "10px", gap: "10px"}}>
                             <label style={{color: "var(--text-primary-color-light)"}}>Class</label>
                             <select
                                 className="registerInput"
@@ -122,8 +136,9 @@ const AddStudent = ({ situation }) => {
                                     </option>
                                 ))}
                             </select>
-                        </>
+                        </div>
                     }
+                    <div style={{display: "flex", flexDirection: "column", padding: "10px", gap: "10px"}}>
                     <label>Email</label>
                     <input
                       className="registerInput"
@@ -135,7 +150,9 @@ const AddStudent = ({ situation }) => {
                       
                       
                     />
+                    </div>
 
+                    <div style={{display: "flex", flexDirection: "column", padding: "10px", gap: "10px"}}>
                     <label>Phone No.</label>
                     <input
                       className="registerInput"
@@ -143,11 +160,11 @@ const AddStudent = ({ situation }) => {
                       placeholder="Enter student's Phone no...."
                       value={phoneNo}
                       onChange={(event) => setPhoneNo(event.target.value)}
-                      
-                      
-                      
+   
                     />
 
+                    </div>
+                    <div style={{display: "flex", flexDirection: "column", padding: "10px", gap: "10px"}}>
                     <label>Gender</label>
                     <input
                       className="registerInput"
@@ -159,7 +176,9 @@ const AddStudent = ({ situation }) => {
                       autoComplete="gender"
                       
                     />
+                    </div>
 
+                    <div style={{display: "flex", flexDirection: "column", padding: "10px", gap: "10px"}}>
                     <label>Date of Birth</label>
                     <input
                       className="registerInput"
@@ -171,7 +190,9 @@ const AddStudent = ({ situation }) => {
                       autoComplete="dob"
                       
                     />
+                    </div>
 
+                    <div style={{display: "flex", flexDirection: "column", padding: "10px", gap: "10px"}}>
                     <label>Current Address</label>
                     <input
                       className="registerInput"
@@ -183,7 +204,9 @@ const AddStudent = ({ situation }) => {
                       autoComplete="cAddress"
                       
                     />
+                    </div>
 
+                    <div style={{display: "flex", flexDirection: "column", padding: "10px", gap: "10px"}}>
                     <label>Permenent Address</label>
                     <input
                       
@@ -196,30 +219,37 @@ const AddStudent = ({ situation }) => {
                       autoComplete="pAdress"
                      
                     />
+                    </div>
 
-                    <label style={{color: "var(--text-primary-color-light)"}}>Roll Number</label>
+                   <div style={{display: "flex", flexDirection: "column", padding: "10px", gap: "10px"}}>
+                   <label style={{color: "var(--text-primary-color-light)"}}>Roll Number</label>
                     <input className="registerInput" type="number" placeholder="Enter student's Roll Number..."
                         value={rollNum}
                         onChange={(event) => setRollNum(event.target.value)}
                         required />
+                   </div>
 
+                    <div style={{display: "flex", flexDirection: "column", padding: "10px", gap: "10px"}}>
                     <label>Password</label>
                     <input className="registerInput" type="password" placeholder="Enter student's password..."
                         value={password}
                         onChange={(event) => setPassword(event.target.value)}
                         autoComplete="new-password" required />
+                    </div>
 
-                    <button className="registerButton" type="submit" disabled={loader}>
+                    <button className="registerButton" type="submit" disabled={loader} style={{padding: "10px 25px"}}>
                         {loader ? (
                             <CircularProgress size={24} color="inherit" />
                         ) : (
                             'Add'
                         )}
                     </button>
+                    
                 </form>
+                    
             </div>
             <Popup message={message} setShowPopup={setShowPopup} showPopup={showPopup} />
-        </>
+        </Container>
     )
 }
 

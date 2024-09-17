@@ -4,7 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { deleteUser, updateUser } from '../../redux/userRelated/userHandle';
 import { useNavigate } from 'react-router-dom'
 import { authLogout } from '../../redux/userRelated/userSlice';
-import { Button, Collapse } from '@mui/material';
+import { Avatar, Box, Button, Collapse, Container, Grid2, Paper, Typography } from '@mui/material';
+import styled from 'styled-components';
 
 // import { useSelector } from 'react-redux';
 
@@ -46,19 +47,61 @@ const AdminProfile = () => {
 
     return (
         <div>
-            Name: {currentUser.name}
+        <Container sx={{display: "flex", flexDirection: "column", paddingTop: "20px", gap: "20px"}}>
+            <StyledPaper>
+            <Grid2 container spacing={2} sx={{display: "flex", justifyContent: "space-evenly"}}>
+            <Grid2  xs={12}>
+              <Box display="flex" justifyContent="center">
+                <Avatar alt="Student Avatar" sx={{ width: 150, height: 150 }}>
+                  {String(currentUser.name).charAt(0)}
+                </Avatar>
+              </Box>
+            </Grid2>  
+            <Grid2 sx={{display: "flex",flexDirection: "column", flexWrap: { xs: "wrap", md: "nowrap" }}}>
+            <Grid2  xs={12}>
+              <Box display="flex" justifyContent="center">
+                <Typography variant="subtitle1" component="p" textAlign="center">
+                  School: {currentUser.name}
+                </Typography>
+              </Box>
+            </Grid2>
+            <Grid2  xs={12}>
+              <Box display="flex" justifyContent="center">
+                <Typography variant="subtitle1" component="p" textAlign="center">
+                  School: {currentUser.email}
+                </Typography>
+              </Box>
+            </Grid2>
+            <Grid2  xs={12}>
+              <Box display="flex" justifyContent="center">
+                <Typography variant="subtitle1" component="p" textAlign="center">
+                  School: {currentUser.schoolname}
+                </Typography>
+              </Box>
+            </Grid2>
+            </Grid2> 
+            </Grid2>
+            </StyledPaper>
+        
+
+        
+            {/* Name: {currentUser.name}
             <br />
             Email: {currentUser.email}
             <br />
             School: {currentUser.schoolName}
-            <br />
-            { <Button variant="contained" color="error" onClick={deleteHandler}>Delete</Button> }
+            <br /> */}
+            <Grid2 container spacing={2} sx={{display: "flex", justifyContent: "space-evenly"}}>
+            { <Button variant="contained" color="error" onClick={deleteHandler}>Delete Account</Button> }
             <Button variant="contained" sx={styles.showButton}
                 onClick={() => setShowTab(!showTab)}>
                 {showTab ? <KeyboardArrowUp /> : <KeyboardArrowDown />}{buttonText}
             </Button>
+            </Grid2>
+            <Grid2>
+            
             <Collapse in={showTab} timeout="auto" unmountOnExit>
-                <div className="register">
+                <div className="register" style={{height: "77vh"}}>
                     <form className="registerForm" onSubmit={submitHandler}>
                         <span className="registerTitle">Edit Details</span>
                         <label>Name</label>
@@ -89,7 +132,11 @@ const AdminProfile = () => {
                     </form>
                 </div>
             </Collapse> 
+           
+            </Grid2>
+            </Container>
         </div>
+
     )
 }
 
@@ -103,3 +150,8 @@ const styles = {
         }
     }
 }
+
+const StyledPaper = styled(Paper)`
+  padding: 20px;
+  margin-bottom: 20px;
+`;

@@ -52,6 +52,7 @@ import TableChartIcon from "@mui/icons-material/TableChart";
 import TableChartOutlinedIcon from "@mui/icons-material/TableChartOutlined";
 import Popup from "../../../components/Popup";
 import styled from "styled-components";
+// import {  GreenButton } from '../../components/buttonStyles';
 
 const ViewStudent = () => {
   const [showTab, setShowTab] = useState(false);
@@ -720,7 +721,8 @@ const ViewStudent = () => {
             <Grid2
               sx={{
                 display: "flex",
-                flexDirection: "column",
+                flexDirection: "row",
+                justifyContent: "center",
                 flexWrap: { xs: "wrap", md: "nowrap" },
               }}
             >
@@ -752,13 +754,14 @@ const ViewStudent = () => {
            
             <Grid2
               sx={{
+                
                 display: "flex",
                 flexDirection: "column",
                 flexWrap: { xs: "wrap", md: "nowrap" },
               }}
             >
               <Collapse in={showTab} timeout="auto" unmountOnExit>
-                <div className="register">
+                <div className="register" styles={{height: "40vh"}}>
                   <style>
                     {`
                     .registerForm {
@@ -873,9 +876,9 @@ const styles = {
   },
   styledButton: {
     margin: "20px",
-    backgroundColor: "#02250b",
+    backgroundColor: "var(--text-primary-color-light)",
     "&:hover": {
-      backgroundColor: "#106312",
+      backgroundColor: "var(--hover-color-light)",
     },
   },
 };

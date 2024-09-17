@@ -54,7 +54,8 @@ export default function BasicDateCalendar() {
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <StyledDateCalendar
         sx={{
-          width: '450px',
+          width: {sm: "350px", md: "450px"},
+          
         }}
       />
     </LocalizationProvider>
