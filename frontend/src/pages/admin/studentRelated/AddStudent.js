@@ -101,7 +101,6 @@ const AddStudent = ({ situation }) => {
                   </style>
                 <form className="registerForm" onSubmit={submitHandler}>
                     <span className="registerTitle">Add Student</span>
-                    
                     <label>Name</label>
                     <input className="registerInput" type="text" placeholder="Enter student's name..."
                         value={name}
@@ -111,7 +110,7 @@ const AddStudent = ({ situation }) => {
                     {
                         situation === "Student" &&
                         <>
-                            <label>Class</label>
+                            <label style={{color: "var(--text-primary-color-light)"}}>Class</label>
                             <select
                                 className="registerInput"
                                 value={className}
@@ -198,7 +197,7 @@ const AddStudent = ({ situation }) => {
                      
                     />
 
-                    <label>Roll Number</label>
+                    <label style={{color: "var(--text-primary-color-light)"}}>Roll Number</label>
                     <input className="registerInput" type="number" placeholder="Enter student's Roll Number..."
                         value={rollNum}
                         onChange={(event) => setRollNum(event.target.value)}

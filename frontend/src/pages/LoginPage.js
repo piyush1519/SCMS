@@ -5,7 +5,8 @@ import { Button, Grid2, Box, Typography, Paper, Checkbox, FormControlLabel, Text
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 import bgpic from "../assets/designlogin.jpg"
-import { LightPurpleButton } from '../components/buttonStyles';
+import {  LightPurpleButton, RoundButton } from '../components/buttonStyles';
+import { FaGoogle, FaLinkedin } from 'react-icons/fa';
 import styled from 'styled-components';
 import { loginUser } from '../redux/userRelated/userHandle';
 import Popup from '../components/Popup';
@@ -121,9 +122,22 @@ const LoginPage = ({ role }) => {
         }
     }, [status, currentRole, navigate, error, response, currentUser]);
 
+    const OutlookIconSVG = () => (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          style={{ color: 'var(--background-color-light)' }}
+        >
+          <path d="M21 4H3a1 1 0 00-1 1v14a1 1 0 001 1h18a1 1 0 001-1V5a1 1 0 00-1-1zm-1 14H4v-1.2L9.8 12 4 9.2V8h16v1.2L14.2 12l6.8 2.8V18zM4 5h16v2H4V5zm16 13H4v-1.5L9.6 12 4 8.5V7h16v1.5L14.4 12l6.6 2.5V18z"/>
+        </svg>
+      );
+
     return (
         <ThemeProvider theme={defaultTheme} >
-            <Grid2 container component="main" sx={{ height:"100vh" ,display: "flex", flexWrap: { xs: "wrap", md: "nowrap" }}} >
+            <Grid2 container component="main" sx={{ padding: "30px", height:"100vh" ,display: "flex", justifyContent: "center", flexWrap: { xs: "wrap", md: "nowrap" }}} >
                 <CssBaseline />
                 <Grid2 item xs={12} sm={8} md={5} component={Paper} elevation={6} square >
                     <Box
@@ -136,10 +150,10 @@ const LoginPage = ({ role }) => {
                             alignItems: 'center',
                         }}
                     >
-                        <Typography variant="h4" sx={{ mb: 2, color: "#2c2143" }}>
+                        <Typography variant="h4" sx={{ mb: 2, color: "var(--text-primary-color-light)" }}>
                             {role} Login
                         </Typography>
-                        <Typography variant="h7">
+                        <Typography variant="h7" sx={{color: "var(--text-secondary-color-light)"}}>
                             Welcome back! Please enter your details
                         </Typography>
                         <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 2 }}>
@@ -237,7 +251,7 @@ const LoginPage = ({ role }) => {
                                 fullWidth
                                 onClick={guestModeHandler}
                                 variant="outlined"
-                                sx={{ mt: 2, mb: 3, color: "#7f56da", borderColor: "#7f56da" }}
+                                sx={{ mt: 2, mb: 3, color: "var(--text-primary-color-light)", borderColor: "var(--text-primary-color-light)" }}
                             >
                                 Login as Guest
                             </Button>
@@ -254,6 +268,23 @@ const LoginPage = ({ role }) => {
                                 </Grid2>
                             }
                         </Box>
+                        {role === "Admin" &&
+                            <Box sx={{ mt: 2, padding: "10px", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
+                                <Typography variant="h5" sx={{ paddingLeft: "10px", mb: 2, color: "var(--text-primary-color-light)" }}>
+                                 Countinue with 
+                                </Typography>
+                                <Grid2 sx={{ padding: "0px 20px", display: "flex", flexDirection: "row", gap: "20px", justifyContent: "center", alignItems: "center"}}>
+                                    <RoundButton><FaGoogle style={{ color: 'var(--background-color-light)' }} /></RoundButton>
+                                    
+                                    <RoundButton><OutlookIconSVG/></RoundButton>
+                                   
+                                </Grid2>
+                                <Grid2 sx={{ padding: "0px 20px", display: "flex", flexDirection: "row", gap: "20px", justifyContent: "center", alignItems: "center"}}>
+                                    <Typography variant='h9'>Google</Typography>
+                                    <Typography>Outlook</Typography>
+                                </Grid2>
+                            </Box>                        
+                        }
                     </Box>
                 </Grid2>
                 <Grid2
@@ -288,5 +319,5 @@ export default LoginPage
 const StyledLink = styled(Link)`
   margin-top: 9px;
   text-decoration: none;
-  color: #7f56da;
+  color: var(--text-primary-color-light);
 `;

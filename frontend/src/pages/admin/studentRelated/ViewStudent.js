@@ -22,6 +22,7 @@ import {
   BottomNavigationAction,
   Container,
   Grid2,
+  
   Avatar,
 } from "@mui/material";
 import TabContext from "@mui/lab/TabContext";
@@ -50,6 +51,7 @@ import InsertChartOutlinedIcon from "@mui/icons-material/InsertChartOutlined";
 import TableChartIcon from "@mui/icons-material/TableChart";
 import TableChartOutlinedIcon from "@mui/icons-material/TableChartOutlined";
 import Popup from "../../../components/Popup";
+import styled from "styled-components";
 
 const ViewStudent = () => {
   const [showTab, setShowTab] = useState(false);
@@ -552,6 +554,7 @@ const ViewStudent = () => {
   const StudentDetailsSection = () => {
     return (
       <Container maxWidth="lg">
+       
         <Grid2 sx={{ display: "flex", flexWrap: { xs: "wrap", md: "nowrap" } }}>
           <div>
             {/* Name : {userDetails.name}
@@ -574,135 +577,146 @@ const ViewStudent = () => {
                 <br />
                 Permenent Address : {userDetails.pAddress}
                 <br /> */}
-
-            <Grid2
-              container
-              spacing={2}
-              sx={{ display: "flex", justifyContent: "space-evenly" }}
-            >
-              <Grid2 xs={12}>
-                <Box display="flex" justifyContent="center">
-                  <Avatar alt="Student Avatar" sx={{ width: 150, height: 150 }}>
-                    {String(userDetails.name).charAt(0)}
-                  </Avatar>
-                </Box>
-              </Grid2>
-
+            <StyledPaper>
               <Grid2
-                sx={{
-                  display: "flex",
-                  flexDirection: "column",
-                  flexWrap: { xs: "wrap", md: "nowrap" },
-                }}
+                container
+                spacing={2}
+                sx={{ display: "flex",gap: "70px" }}
               >
-                <Grid2 xs={12}>
-                  <Box display="flex" justifyContent="center">
-                    <Typography variant="h5" component="h2" textAlign="center">
-                      {userDetails.name}
-                    </Typography>
-                  </Box>
+                <Grid2 container sx={{display: "flex", flexDirection: "column", gap: "10px"}}>
+                  <Grid2 xs={12}>
+                    <Box display="flex" justifyContent="center">
+                      <Avatar alt="Student Avatar" sx={{ width: 150, height: 150 }}>
+                        {String(userDetails.name).charAt(0)}
+                        </Avatar>
+                    </Box>
+                  </Grid2>
+
+                  <Grid2 xs={12}>
+                      <Box display="flex" justifyContent="center">
+                        <Typography variant="h5" component="h2" textAlign="center">
+                          {userDetails.name}
+                        </Typography>
+                      </Box>
+                  </Grid2>
+                    <Grid2 xs={12}>
+                    <Box display="flex" justifyContent="center">
+                      <Typography
+                        variant="subtitle1"
+                        component="p"
+                        textAlign="center"
+                      >
+                        Student Roll No: {userDetails.rollNum}
+                      </Typography>
+                    </Box>
+                  </Grid2>
+                  <Grid2 xs={12}>
+                    <Box display="flex" justifyContent="center">
+                      <Typography
+                        variant="subtitle1"
+                        component="p"
+                        textAlign="center"
+                      >
+                        Class : {sclassName.sclassName}
+                      </Typography>
+                    </Box>
+                  </Grid2>
+
+                  <Grid2 xs={12}>
+                    <Box display="flex" justifyContent="center">
+                      <Typography
+                        variant="subtitle1"
+                        component="p"
+                        textAlign="center"
+                      >
+                        School: {studentSchool.schoolName}
+                      </Typography>
+                    </Box>
+                  </Grid2>
+
                 </Grid2>
-                <Grid2 xs={12}>
-                  <Box display="flex" justifyContent="center">
-                    <Typography
-                      variant="subtitle1"
-                      component="p"
-                      textAlign="center"
-                    >
-                      Student Roll No: {userDetails.rollNum}
-                    </Typography>
-                  </Box>
-                </Grid2>
-                <Grid2 xs={12}>
-                  <Box display="flex" justifyContent="center">
-                    <Typography
-                      variant="subtitle1"
-                      component="p"
-                      textAlign="center"
-                    >
-                      Class : {sclassName.sclassName}
-                    </Typography>
-                  </Box>
-                </Grid2>
-                <Grid2 xs={12}>
-                  <Box display="flex" justifyContent="center">
-                    <Typography
-                      variant="subtitle1"
-                      component="p"
-                      textAlign="center"
-                    >
-                      School: {studentSchool.schoolName}
-                    </Typography>
-                  </Box>
-                </Grid2>
-                <Grid2 xs={12}>
-                  <Box display="flex" justifyContent="center">
-                    <Typography
-                      variant="subtitle1"
-                      component="p"
-                      textAlign="center"
-                    >
-                      Email : {userDetails.email}
-                    </Typography>
-                  </Box>
-                </Grid2>
-                <Grid2 xs={12}>
-                  <Box display="flex" justifyContent="center">
-                    <Typography
-                      variant="subtitle1"
-                      component="p"
-                      textAlign="center"
-                    >
-                      Phone no. : {userDetails.phoneNo}
-                    </Typography>
-                  </Box>
-                </Grid2>
-                <Grid2 xs={12}>
-                  <Box display="flex" justifyContent="center">
-                    <Typography
-                      variant="subtitle1"
-                      component="p"
-                      textAlign="center"
-                    >
-                      Gender : {userDetails.gender}
-                    </Typography>
-                  </Box>
-                </Grid2>
-                <Grid2 xs={12}>
-                  <Box display="flex" justifyContent="center">
-                    <Typography
-                      variant="subtitle1"
-                      component="p"
-                      textAlign="center"
-                    >
-                      Date of Birth : {userDetails.dob}
-                    </Typography>
-                  </Box>
-                </Grid2>
-                <Grid2 xs={12}>
-                  <Box display="flex" justifyContent="center">
-                    <Typography
-                      variant="subtitle1"
-                      component="p"
-                      textAlign="center"
-                    >
-                      Current Address : {userDetails.cAddress}
-                    </Typography>
-                  </Box>
-                </Grid2>
-                <Grid2 xs={12}>
-                  <Box display="flex" justifyContent="center">
-                    <Typography
-                      variant="subtitle1"
-                      component="p"
-                      textAlign="center"
-                    >
-                      Permenent Address : {userDetails.pAddress}
-                    </Typography>
-                  </Box>
+
+                <Grid2
+                  sx={{
+                    
+                    display: "flex",
+                    flexDirection: "column",
+                    flexWrap: { xs: "wrap", md: "nowrap" },
+                  }}
+                >
+                  
+                  
+                  <Grid2 xs={12}>
+                    <Box display="flex" justifyContent="flex-start">
+                      <Typography
+                        variant="subtitle1"
+                        component="p"
+                        textAlign="center"
+                      >
+                        Email : {userDetails.email}
+                      </Typography>
+                    </Box>
+                  </Grid2>
+                  <Grid2 xs={12}>
+                    <Box display="flex" justifyContent="flex-start">
+                      <Typography
+                        variant="subtitle1"
+                        component="p"
+                        textAlign="center"
+                      >
+                        Phone no. : {userDetails.phoneNo}
+                      </Typography>
+                    </Box>
+                  </Grid2>
+                  <Grid2 xs={12}>
+                    <Box display="flex" justifyContent="flex-start">
+                      <Typography
+                        variant="subtitle1"
+                        component="p"
+                        textAlign="center"
+                      >
+                        Gender : {userDetails.gender}
+                      </Typography>
+                    </Box>
+                  </Grid2>
+                  <Grid2 xs={12}>
+                    <Box display="flex" justifyContent="flex-start">
+                      <Typography
+                        variant="subtitle1"
+                        component="p"
+                        textAlign="center"
+                      >
+                        Date of Birth : {userDetails.dob}
+                      </Typography>
+                    </Box>
+                  </Grid2>
+                  <Grid2 xs={12}>
+                    <Box display="flex" justifyContent="flex-start">
+                      <Typography
+                        variant="subtitle1"
+                        component="p"
+                        textAlign="center"
+                      >
+                        {/* Current Address : {userDetails.cAddress} */}
+                        Current Address: Room No. -09, Kumud bldg, New Mandala, Anushaktinagar, Mumbai -94
+                      </Typography>
+                    </Box>
+                  </Grid2>
+                  <Grid2 xs={12}>
+                    <Box display="flex" justifyContent="flex-start">
+                      <Typography
+                        variant="subtitle1"
+                        component="p"
+                        textAlign="center"
+                      >
+                        {/* Permanent Address : {userDetails.pAddress} */}
+                        Permanent Address: Room No. -09, Kumud bldg, New Mandala, Anushaktinagar, Mumbai -94 
+                      </Typography>
+                    </Box>
+                  </Grid2>
                 </Grid2>
               </Grid2>
-            </Grid2>
+            </StyledPaper>
             <Grid2
               sx={{
                 display: "flex",
@@ -722,7 +736,7 @@ const ViewStudent = () => {
               >
                 Delete
               </Button>
-
+              
               <Button
                 variant="contained"
                 sx={styles.styledButton}
@@ -793,6 +807,7 @@ const ViewStudent = () => {
             </Grid2>
           </div>
         </Grid2>
+        
       </Container>
     );
   };
@@ -864,3 +879,10 @@ const styles = {
     },
   },
 };
+
+
+ const StyledPaper = styled(Paper)`
+  max-width: 300%;
+  padding: 20px;
+  margin-bottom: 20px;
+`;

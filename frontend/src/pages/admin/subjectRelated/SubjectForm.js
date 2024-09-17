@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addStuff } from '../../../redux/userRelated/userHandle';
 import { underControl } from '../../../redux/userRelated/userSlice';
 import Popup from '../../../components/Popup';
+import { padding } from "@mui/system";
 
 const SubjectForm = () => {
     const [subjects, setSubjects] = useState([{ subName: "", subCode: "", sessions: "" }]);
@@ -87,11 +88,11 @@ const SubjectForm = () => {
     }, [status, navigate, error, response, dispatch]);
 
     return (
-        <form onSubmit={submitHandler}>
-            <Box mb={2}>
+        <form onSubmit={submitHandler} styles={{padding: "10px"}}>
+            <Box mb={2} sx={{padding: "10px"}}>
                 <Typography variant="h6" >Add Subjects</Typography>
             </Box>
-            <Grid container spacing={2}>
+            <Grid container spacing={2} sx={{padding: "10px"}}>
                 {subjects.map((subject, index) => (
                     <React.Fragment key={index}>
                         <Grid item xs={6}>

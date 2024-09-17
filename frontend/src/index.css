@@ -20,6 +20,22 @@ a {
   --color-light: rgba(255, 255, 255, 0.6);
 }
 
+:root {
+  --background-color-light: #fffefe;
+  --primary-color-light: #0084ff;
+  --secondary-color-light: #1272cc;
+  --hover-color-light: #004F99;
+  --text-primary-color-light: #003566;
+  --text-secondary-color-light: #004F99;
+
+  --background-color-dark: #1d1b1b;
+  --primary-color-dark: #168FFF;
+  --secondary-color-dark: #45A5FF;
+  --hover-color-dark: #73BCFF;
+  --text-primary-color-dark: #A2D2FF;
+  --text-secondary-color-dark: #73BCFF;
+}
+
 /* FORM */
 .register {
   height: 100vh;
@@ -36,6 +52,7 @@ a {
 }
 
 .registerTitle {
+  color: var(--text-primary-color-light);
   font-size: 50px;
 }
 
@@ -64,8 +81,9 @@ a {
 .registerButton {
   margin-top: 20px;
   cursor: pointer;
-  background-color: #000000;
-  color: white;
+  background-color: var(--text-primary-color-light);
+  color: var(--background-color-light);
+  font-size: 16px;
   padding: 10px;
   border: none;
   border-radius: 10px;
@@ -73,7 +91,8 @@ a {
 }
 
 .registerButton:hover {
-  background-color: #313131;
+  background-color: var(--hover-color-light);
+  color: var(--background-color-light);
 }
 
 @media screen and (max-width: 480px) {

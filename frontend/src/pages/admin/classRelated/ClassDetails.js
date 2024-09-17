@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom'
 import { getClassDetails, getClassStudents, getSubjectList } from "../../../redux/sclassRelated/sclassHandle";
 import { deleteUser } from '../../../redux/userRelated/userHandle';
-import {Box, Container, Typography, Tab, IconButton} from '@mui/material';
+import {Box, Container, Typography, Tab, IconButton, Paper, Grid2} from '@mui/material';
 import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
@@ -16,6 +16,7 @@ import SpeedDialTemplate from "../../../components/SpeedDialTemplate";
 import Popup from "../../../components/Popup";
 import DeleteIcon from "@mui/icons-material/Delete";
 import PostAddIcon from '@mui/icons-material/PostAdd';
+import styled from "styled-components";
 
 const ClassDetails = () => {
     const params = useParams()
@@ -214,36 +215,40 @@ const ClassDetails = () => {
         const numberOfStudents = sclassStudents.length;
 
         return (
-            <>
-                <Typography variant="h4" align="center" gutterBottom>
+            <Container maxWidth="md" sx={{ padding: "50px", display: "flex", flexDirection: "column", gap: "5px", alignItems: "center"}}>
+              <StyledPaper>
+                <Typography variant="h4" align="center" gutterBottom sx={{color: "var(--text-primary-color-light)", padding: "20px"}}>
                     Class Details
                 </Typography>
-                <Typography variant="h5" gutterBottom>
+                <Typography variant="h5" gutterBottom >
                     This is Class {sclassDetails && sclassDetails.sclassName}
                 </Typography>
-                <Typography variant="h6" gutterBottom>
+                <Typography variant="h6" gutterBottom >
                     Number of Subjects: {numberOfSubjects}
                 </Typography>
-                <Typography variant="h6" gutterBottom>
+                <Typography variant="h6" gutterBottom >
                     Number of Students: {numberOfStudents}
                 </Typography>
-                {getresponse &&
-                    <GreenButton
-                        variant="contained"
-                        onClick={() => navigate("/Admin/class/addstudents/" + classID)}
-                    >
-                        Add Students
-                    </GreenButton>
-                }
-                {response &&
-                    <GreenButton
-                        variant="contained"
-                        onClick={() => navigate("/Admin/addsubject/" + classID)}
-                    >
-                        Add Subjects
-                    </GreenButton>
-                }
-            </>
+                <Grid2 sx={{padding: "30px", display: "flex", flexDirection: "row", gap: "15px"}}>
+                    {getresponse &&
+                        <GreenButton
+                            variant="contained"
+                            onClick={() => navigate("/Admin/class/addstudents/" + classID)}
+                        >
+                            Add Students
+                        </GreenButton>
+                    }
+                    {response &&
+                        <GreenButton
+                            variant="contained"
+                            onClick={() => navigate("/Admin/addsubject/" + classID)}
+                        >
+                            Add Subjects
+                        </GreenButton>
+                    }
+                </Grid2>
+              </StyledPaper>  
+            </Container>
         );
     }
 
@@ -287,3 +292,8 @@ const ClassDetails = () => {
 };
 
 export default ClassDetails;
+
+const StyledPaper = styled(Paper)`
+  padding: 20px;
+  margin-bottom: 20px;
+`;

@@ -149,8 +149,8 @@ const ShowClasses = () => {
         :
         <>
           {getresponse ?
-            <Box sx={{ display: 'flex', justifyContent: 'flex-end', marginTop: '16px' }}>
-              <GreenButton variant="contained" onClick={() => navigate("/Admin/addclass")}>
+            <Box sx={{ padding: "40px", display: 'flex', justifyContent: 'flex-start', marginTop: '16px' }}>
+              <GreenButton variant="contained" sx={{padding: "10px 15px"}} onClick={() => navigate("/Admin/addclass")}>
                 Add Class
               </GreenButton>
             </Box>

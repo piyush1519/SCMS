@@ -61,23 +61,41 @@ export const PurpleButton = styled(Button)`
 
 export const LightPurpleButton = styled(Button)`
   && {
-    background-color: #7f56da;
+    background-color: var(--text-primary-color-light);
     color: #fff;
     &:hover {
-      background-color: #7a1ccb;
+      background-color: var(--secondary-color-light);
     }
   }
 `;
 
 export const GreenButton = styled(Button)`
   && {
-    background-color: #19d286;
-    color: #fff;
+    background-color: var(--secondary-color-light);
+    color: var(--background-color-light);
+    
     &:hover {
-      background-color: #266810;
+      background-color: var(--hover-color-light);
+      
     }
   }
 `;
+
+export const RoundButton = styled(Button)`
+  && {
+    min-width: 45px;
+    height: 45px;
+   
+    border-radius: 50%;
+    background-color: var(--secondary-color-light);
+    color: var(--background-color-light);
+    
+    &:hover {
+      background-color: var(--hover-color-light);
+      
+    }
+  }
+`
 
 export const BrownButton = styled(Button)`
   && {

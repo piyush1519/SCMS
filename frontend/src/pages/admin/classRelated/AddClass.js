@@ -88,7 +88,7 @@ const AddClass = () => {
                             >
                                 {loader ? <CircularProgress size={24} color="inherit" /> : "Create"}
                             </BlueButton>
-                            <Button variant="outlined" onClick={() => navigate(-1)}>
+                            <Button variant="outlined" sx={{color: "var(--text-primary-color-light)", borderColor: "var(--text-primary-color-light)"}} onClick={() => navigate(-1)}>
                                 Go Back
                             </Button>
                         </Stack>

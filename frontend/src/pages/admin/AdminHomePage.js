@@ -11,7 +11,7 @@ import { useEffect } from 'react';
 import { getAllSclasses } from '../../redux/sclassRelated/sclassHandle';
 import { getAllStudents } from '../../redux/studentRelated/studentHandle';
 import { getAllTeachers } from '../../redux/teacherRelated/teacherHandle';
-import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend, Bar, Rectangle, BarChart } from 'recharts';
 import BasicDateCalendar from '../../components/calendar';
 
 const AdminHomePage = () => {
@@ -173,25 +173,27 @@ const AdminHomePage = () => {
                         <Box sx={{ padding:"10px" ,width: { xs: '100%', md: 550 }, height: 500 }}>
                           <Paper sx={{  p: 2, display: 'flex', flexDirection: 'column', height: "100%" }}>
                             <Title> Average Expenses</Title>
-                              <ResponsiveContainer sx ={{ width:"100%", height:"100%",  }} >
-                                <AreaChart
-                                  width={500}
-                                  height={400}
-                                  data={data}
-                                  margin={{
-                                    top: 10,
-                                    right: 30,
-                                    left: 0,
-                                    bottom: 0,
-                                  }}
-                                >
-                                  <CartesianGrid strokeDasharray="3 3" />
-                                  <XAxis dataKey="name" />
-                                  <YAxis />
-                                  <Tooltip />
-                                  <Area type="monotone" dataKey="uv" stroke="#8884d8" fill="#8884d8" />
-                                </AreaChart>
-                              </ResponsiveContainer>
+                            <ResponsiveContainer width="100%" height="100%">
+                              <BarChart
+                                width={500}
+                                height={300}
+                                data={data}
+                                margin={{
+                                  top: 5,
+                                  right: 30,
+                                  left: 20,
+                                  bottom: 5,
+                                }}
+                              >
+                                <CartesianGrid strokeDasharray="3 3" />
+                                <XAxis dataKey="name" />
+                                <YAxis />
+                                <Tooltip />
+                                <Legend />
+                                <Bar dataKey="pv" fill="#8884d8" activeBar={<Rectangle fill="pink" stroke="blue" />} />
+                                <Bar dataKey="uv" fill="#82ca9d" activeBar={<Rectangle fill="gold" stroke="purple" />} />
+                              </BarChart>
+                            </ResponsiveContainer>
                          </Paper>
                         </Box>
                       
